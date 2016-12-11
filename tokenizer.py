@@ -1,7 +1,7 @@
 biglst = []
 #step 2 tokenizer
 # FIRST PARAMETER IS JUST THE STEP1.TXT
-# SECOND PARMETER IS THE DIRECTORY WE SUPPOSE TO USE
+# SECOND PARMETER IS THE DIRECTORY WE ARE SUPPOSE TO USE
 def token(s1file, gdir):
 
         #open step1file
@@ -42,26 +42,36 @@ def xline(entry):
                         inHTML = 1;
 
                 count = 0
+                
+                hflag = [0]
                 for i in ilst:
-                        hid = 0;
-                        hflag = 0;
                         if(inHTML == 1):
                                 
                                 i = str(i)
                                 if(i.lower() == "<title>" or i.lower() == "</title>" ):
-                                        hid = 1
-                                        hflag = 1
+                                        if(hflag[len(hflag) - 1] == 1):
+                                                hflag.pop()
+                                        else:
+                                                hflag.append(1)
+                                        
                                 elif(i.lower() == "<a>" or i.lower() == "</a>" ):
-                                        hid = 2
-                                        hflag = 1
+                                        if(hflag[len(hflag) - 1] == 2):
+                                                hflag.pop()
+                                        else:
+                                                hflag.append(2)
                                 elif(len(i) > 3 and i[len(i)-1] == '>'):
                                         if(i.lower()[0] == '<' and i.lower()[1] == 'h' and i[2].isdigit()):
-                                                hid = 3
-                                                hflag = 1
+                                                if(hflag[len(hflag) - 1] == 1):
+                                                        hflag.pop()
+                                                else:
+                                                        hflag.append(3)
 
-                        if (hflag == 1):
+                        if (inHTML == 1):
                                 
-                                smlst = [oentry[2], i, count, hid]                        
+                                if(checkword(i) == 0):
+                                        count += 1
+                                        continue
+                                smlst = [oentry[2], i, count, hflag[len(hflag) - 1]]                        
                                 biglst.append(smlst)              
                                 count += 1
                         else:
@@ -69,7 +79,7 @@ def xline(entry):
                                         count += 1
                                         continue
                                 
-                                smlst = [oentry[2], i, count, hid]                        
+                                smlst = [oentry[2], i, count, 0]                        
                                 biglst.append(smlst)
                                 count += 1
 
