@@ -1,0 +1,14 @@
+/home/daru/cs345/se/besho	DIR	1
+/home/daru/cs345/se/besho/n2	DIR	2
+/home/daru/cs345/se/besho/n2/ren.txt	TXT	3
+/home/daru/cs345/se/besho/ren.txt	TXT	4
+/home/daru/cs345/se/besho/courses	DIR	5
+/home/daru/cs345/se/besho/courses/cs500	DIR	6
+/home/daru/cs345/se/besho/courses/cs500/ren.txt	TXT	7
+/home/daru/cs345/se/besho/courses/cs345	DIR	8
+/home/daru/cs345/se/besho/courses/cs345/my.txt	TXT	9
+/home/daru/cs345/se/besho/courses/cs345/ren.pdf	TXTN	10
+/home/daru/cs345/se/besho/courses/cs345/index.html	TXT	11
+/home/daru/cs345/se/besho/courses/cs345/syllabus.txt	TXT	12
+/home/daru/cs345/se/besho/courses/cs345/handouts.html	TXT	13
+/home/daru/cs345/se/besho/courses/cs345/my.java	TXT	14
