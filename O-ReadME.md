@@ -1,8 +1,7 @@
 # CS345-desktop_search_engine
 
 
-well step 2 is mostly done.i wrote 2 python files. the fy.py just runs the tokenizer. it just relies on the step1.txt being in the same folder.
-
+Step 2,3,4 = DONE
 
 
 Notes:
