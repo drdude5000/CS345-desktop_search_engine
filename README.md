@@ -1,1 +1,0 @@
-# CS345-desktop_search_engine
