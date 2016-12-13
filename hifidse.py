@@ -1,6 +1,8 @@
 import sys  # for command line arguments
 import os   # for sys functions
 
+from  tokenizer import token
+from stopstemmer import stopword, stem
  
 docID =0
 
@@ -101,12 +103,18 @@ def main():
         # Check action type
         if(sys.argv[1].lower() == "searchable"):
             # Create file step1.txt
-            file = open("step1.txt", "a")
+            file = open("step1.txt", "w")
             cwd = "/home"
             search(sys.argv[2], cwd, file) # DocID is global variable
             file.close()
         else:
-            print("This is where we check for other commands ")
+            if(sys.argv[1].lower() == "token"):
+                token("step1.txt")
+            if(sys.argv[1].lower() == "stopword"):
+                stopword("step2.txt")
+            if(sys.argv[1].lower() == "stem"):
+                stem("step3.txt")
+            #print("This is where we check for other commands ")
     else:
         print("You need an action and name in command line. Terminated")
 
