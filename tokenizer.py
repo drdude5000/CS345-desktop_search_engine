@@ -39,7 +39,8 @@ def xline(entry):
                 if(oentry[0][-4:] == "html" or oentry[0][-3:] == "htm"):
                         inHTML = 1;
 
-                count = 0
+                #starting offset number
+                count = 1
                 
                 hflag = [0]
                 for i in ilst:
