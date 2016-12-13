@@ -4,8 +4,8 @@ import os   # for sys functions
 from  tokenizer import token
 from stopstemmer import stopword, stem
  
+# DocID is used as global variable
 docID =0
-
 
 # Step 1: Searchable
 def search(name, cwd, file):
@@ -46,7 +46,7 @@ def directory_found(cwd, directory, file):
 
 def directory_check(name, cwd, directory, file):
 
-    if (directory == name):
+    if (directory.lower() == name):
         #docID += 1
         # Write file path to step1.txt
         file.write(cwd + "/" + directory + "\tDIR\t{}\n".format(get_docID()))
@@ -75,7 +75,6 @@ def file_check(name, cwd, directory, file):
                 file.write(cwd + "/" + directory + "\tTXTN\t{}\n".format(get_docID()))  
     return isfile
 
-
 # Checks if text-file (.html , .htm , .txt , .cc , .cpp , .c , .h , .java)
 def text_file(filename):
 
@@ -91,6 +90,7 @@ def text_file(filename):
     else:
         return False
 
+# Update global variable DocID
 def get_docID():
     global docID
     docID += 1
@@ -105,16 +105,16 @@ def main():
             # Create file step1.txt
             file = open("step1.txt", "w")
             cwd = "/home"
-            search(sys.argv[2], cwd, file) # DocID is global variable
+            search(sys.argv[2], cwd, file)
             file.close()
+        elif(sys.argv[1].lower() == "token"):
+            token("step1.txt")
+        elif(sys.argv[1].lower() == "stopword"):
+            stopword("step2.txt")
+        elif(sys.argv[1].lower() == "stem"):
+            stem("step3.txt")
         else:
-            if(sys.argv[1].lower() == "token"):
-                token("step1.txt")
-            if(sys.argv[1].lower() == "stopword"):
-                stopword("step2.txt")
-            if(sys.argv[1].lower() == "stem"):
-                stem("step3.txt")
-            #print("This is where we check for other commands ")
+            print("This is where we check for other commands ")
     else:
         print("You need an action and name in command line. Terminated")
 
