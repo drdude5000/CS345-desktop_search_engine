@@ -82,7 +82,7 @@ def stem(gdir):
             lex.append(word)
             
 
-        s3orglst[count][1] = str(lex.index(word))
+        s3orglst[count][1] = str(lex.index(word)+1)
         
         count += 1
 
